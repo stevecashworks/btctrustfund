@@ -1,4 +1,4 @@
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
 const token = localStorage.getItem("btctrusttoken");
 const userTable = document.getElementById("userTable");
 let users;
@@ -49,13 +49,12 @@ setTimeout(() => {
   })
     .then((res) => res.json())
     .then((data) => {
-    
       if (data.success) {
         data.result
           .filter((withdrawal) => withdrawal.status === "pending")
           .forEach((withdrawal, index) => {
-        //   console.log(withdrawal)
-        // console.log(withdrawal.userId)
+            //   console.log(withdrawal)
+            // console.log(withdrawal.userId)
             const row = document.createElement("tr");
             const sn = document.createElement("td");
             const name = document.createElement("td");
@@ -68,8 +67,8 @@ setTimeout(() => {
             const thisUser = users.find(
               (user) => user._id === withdrawal.userId
             );
-            console.log(thisUser)
-            console.log(users)
+            console.log(thisUser);
+            console.log(users);
 
             // approveBtn.setAttribute("href", `./editUser.html?id=${withdrawal._id}`);
             approveBtn.innerHTML = "Approve";
@@ -95,7 +94,6 @@ setTimeout(() => {
             name.innerHTML = thisUser.name;
             email.innerHTML = withdrawal.amount;
             balance.innerHTML = `${withdrawal.coin}`;
-        
 
             const elements = [sn, name, email, balance, action];
 

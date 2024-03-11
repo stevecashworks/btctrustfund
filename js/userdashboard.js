@@ -1,4 +1,4 @@
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
 const userName = document.querySelectorAll(".username");
 const balanceCon = document.getElementById("balance");
 const earningsCon = document.getElementById("earnings");
@@ -19,10 +19,12 @@ fetch(`${apiEntry}/users/tklogin`, {
     balanceCon.innerHTML = `$${data.result.balance}`;
     lastDepositCon.innerHTML = `$${data.result.lastDeposit || 0}`;
     document.title = `${data.result.name}'s dashboard`.toUpperCase();
-    document.getElementById(
-      "pendingWithdrawal"
-    ).innerHTML = `$${data.result.pendingWithdrawal||0}`;
-    document.getElementById("lastWithdrawal").innerHTML=`$${data.result.lastWithdrawal||0}`
+    document.getElementById("pendingWithdrawal").innerHTML = `$${
+      data.result.pendingWithdrawal || 0
+    }`;
+    document.getElementById("lastWithdrawal").innerHTML = `$${
+      data.result.lastWithdrawal || 0
+    }`;
     earningsCon.innerHTML = `$${data.result.earnings}`;
     refCon.innerHTML = data.result.referralBonus;
     console.log(data.result.name);
@@ -46,14 +48,13 @@ fetch(`${apiEntry}/users/getStats`, {
   .then((data) => {
     console.log(data);
     if (data.success) {
-      console.log(data.result)
+      console.log(data.result);
       document.getElementById(
         "totalDeposit"
       ).innerHTML = `$${data.result.totalDeposit}`;
       document.getElementById(
         "totalWithdrawal"
       ).innerHTML = `$${data.result.totalWithdrawal}`;
-      
     }
   });
 

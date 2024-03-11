@@ -1,4 +1,4 @@
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
 const token = localStorage.getItem("btctrusttoken");
 const userTable = document.getElementById("userTable");
 let users;
@@ -79,7 +79,6 @@ setTimeout(() => {
               "btn deleteBtn btn-outline-success"
             );
             approveBtn.onclick = () => {
-                
               edit(withdrawal._id, "approve", thisUser.name, withdrawal.amount);
             };
             declinebtn.onclick = () => {
@@ -105,7 +104,6 @@ setTimeout(() => {
       }
     });
 }, 5000);
-
 
 const logout = () => {
   localStorage.removeItem("btctrusttoken");

@@ -1,4 +1,5 @@
-const apiEntry = `http://localhost:8080`;
+const apiEntry = "https://backend.ulltraprofit.com";
+
 let UserDetails;
 let walletId=""
 let selectedCoin="none"

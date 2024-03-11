@@ -1,4 +1,4 @@
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
 const token = localStorage.getItem("btctrusttoken");
 if (!token) {
   alert("You mus log in first");
@@ -210,23 +210,23 @@ const submitTransaction = () => {
     method: "post",
     headers: {
       "Content-Type": "application/json",
-      "token": token,
+      token: token,
     },
     body: JSON.stringify({
       amount,
       coin: currentCoin,
-      plan:currentPlan
+      plan: currentPlan,
     }),
   })
     .then((res) => res.json())
     .then((data) => {
-      if(data.success){
-       displayAlert("Request has been sent succesfully")
-       setTimeout(()=>{
-       window.location.assign("./userdashboard.html")
-       }, 3000)
-      }else{
-      alert("An error occured") 
+      if (data.success) {
+        displayAlert("Request has been sent succesfully");
+        setTimeout(() => {
+          window.location.assign("./userdashboard.html");
+        }, 3000);
+      } else {
+        alert("An error occured");
       }
     });
 };
@@ -237,11 +237,11 @@ const attemptToSubmit = () => {
     submitTransaction();
   }
 };
-//logout functionality 
+//logout functionality
 //  deletes cached login token
 // redirects user to home page
 
-const logout= ()=>{
-  localStorage.removeItem("btctrusttoken")
-  window.location.assign("./index.html")
-}
+const logout = () => {
+  localStorage.removeItem("btctrusttoken");
+  window.location.assign("./index.html");
+};

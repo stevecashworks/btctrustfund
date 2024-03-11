@@ -1,4 +1,4 @@
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
 const token = localStorage.getItem("btctrusttoken");
 const userTable = document.getElementById("userTable");
 let users;
@@ -51,50 +51,59 @@ setTimeout(() => {
     .then((data) => {
       console.log(data);
       if (data.success) {
-        data.result.filter(withdrawal=>withdrawal.status==="pending").forEach((withdrawal, index) => {
-          const row = document.createElement("tr");
-          const sn = document.createElement("td");
-          const name = document.createElement("td");
-          const walletId = document.createElement("td");
-          const email = document.createElement("td");
-          const balance = document.createElement("td");
-          const action = document.createElement("td");
-          const declinebtn = document.createElement("button");
-          const approveBtn = document.createElement("button");
-          const thisUser = users.find((user) => user._id === withdrawal.userId);
+        data.result
+          .filter((withdrawal) => withdrawal.status === "pending")
+          .forEach((withdrawal, index) => {
+            const row = document.createElement("tr");
+            const sn = document.createElement("td");
+            const name = document.createElement("td");
+            const walletId = document.createElement("td");
+            const email = document.createElement("td");
+            const balance = document.createElement("td");
+            const action = document.createElement("td");
+            const declinebtn = document.createElement("button");
+            const approveBtn = document.createElement("button");
+            const thisUser = users.find(
+              (user) => user._id === withdrawal.userId
+            );
 
-          // approveBtn.setAttribute("href", `./editUser.html?id=${withdrawal._id}`);
-          approveBtn.innerHTML = "Approve";
-          declinebtn.innerHTML = "Decline";
-          declinebtn.setAttribute("class", "btn deleteBtn btn-outline-danger");
-          approveBtn.setAttribute("class", "btn deleteBtn btn-outline-success");
-          approveBtn.onclick = () => {
-            edit(withdrawal._id, "approve", thisUser.name, withdrawal.amount);
-          };
-          declinebtn.onclick = () => {
-            edit(withdrawal._id, "decline", thisUser.name, withdrawal.amount);
-          };
-          action.setAttribute("class", "action");
-          action.appendChild(approveBtn);
-          action.appendChild(declinebtn);
-          sn.innerHTML = index + 1;
-          name.innerHTML = thisUser.name;
-          email.innerHTML = withdrawal.amount;
-          balance.innerHTML = `${withdrawal.wallet.coin}`;
-          walletId.innerHTML = withdrawal.wallet.walletId;
+            // approveBtn.setAttribute("href", `./editUser.html?id=${withdrawal._id}`);
+            approveBtn.innerHTML = "Approve";
+            declinebtn.innerHTML = "Decline";
+            declinebtn.setAttribute(
+              "class",
+              "btn deleteBtn btn-outline-danger"
+            );
+            approveBtn.setAttribute(
+              "class",
+              "btn deleteBtn btn-outline-success"
+            );
+            approveBtn.onclick = () => {
+              edit(withdrawal._id, "approve", thisUser.name, withdrawal.amount);
+            };
+            declinebtn.onclick = () => {
+              edit(withdrawal._id, "decline", thisUser.name, withdrawal.amount);
+            };
+            action.setAttribute("class", "action");
+            action.appendChild(approveBtn);
+            action.appendChild(declinebtn);
+            sn.innerHTML = index + 1;
+            name.innerHTML = thisUser.name;
+            email.innerHTML = withdrawal.amount;
+            balance.innerHTML = `${withdrawal.wallet.coin}`;
+            walletId.innerHTML = withdrawal.wallet.walletId;
 
-          const elements = [sn, name, email, balance, walletId, action];
+            const elements = [sn, name, email, balance, walletId, action];
 
-          elements.forEach((el) => {
-            row.appendChild(el);
+            elements.forEach((el) => {
+              row.appendChild(el);
+            });
+
+            userTable.appendChild(row);
           });
-
-          userTable.appendChild(row);
-        });
       }
     });
 }, 5000);
-
 
 const logout = () => {
   localStorage.removeItem("btctrusttoken");

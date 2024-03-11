@@ -1,4 +1,4 @@
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
 const submitBtn = document.getElementById("submitBtn");
 const mail = document.getElementById("mail");
 const pass = document.getElementById("password");
@@ -29,12 +29,12 @@ submitBtn.addEventListener("click", (e) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.success){
-            localStorage.setItem("btctrusttoken",data.result.token)
-            window.location.assign("./index.html")
-        }else{
-            alert(data.result)
-            submitBtn.disabled=false
+        if (data.success) {
+          localStorage.setItem("btctrusttoken", data.result.token);
+          window.location.assign("./index.html");
+        } else {
+          alert(data.result);
+          submitBtn.disabled = false;
         }
       });
   }

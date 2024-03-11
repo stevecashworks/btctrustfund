@@ -1,4 +1,4 @@
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
 const submitBtn = document.getElementById("submitBtn");
 const pass = document.getElementById("password");
 const mail = document.getElementById("email");

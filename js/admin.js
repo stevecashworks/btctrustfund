@@ -1,5 +1,6 @@
 console.log("working");
-const apiEntry = "http://localhost:8080";
+const apiEntry = "https://backend.ulltraprofit.com";
+
 const token = localStorage.getItem("btctrusttoken");
 fetch(`${apiEntry}/admin/getStats`, {
   method: "post",
