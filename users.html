@@ -47,6 +47,21 @@
             margin-top:140px;
 
         }
+        .deleteBtn{
+          width:160px;
+        }
+        .action{
+          display:flex;
+          gap:10px;
+        }
+        @media (max-width:800px){
+          .table-con{
+            
+            
+            width:95vw;
+            overflow-x: scroll;
+          }
+        }
     </style>
 </head>
 <body>
@@ -248,70 +263,36 @@
             <div class="linksCon">
                 
                 <a href="./users.html" class="btn btn-secondary text-white">Users</a>
-                <a href="" class="btn btn-secondary text-white">Pending Withdrawals</a>
-                <a href="" class="btn btn-secondary text-white">Pending Deposits</a>
-                <a href="" class="btn btn-secondary text-white">Approved Deposits</a>
+                <a href="pendingwithdrawals.html" class="btn btn-secondary text-white">Pending Withdrawals</a>
+                <a href="./pendingdeposits.html" class="btn btn-secondary text-white">Pending Deposits</a>
+                <a href="./approveddeposits.html" class="btn btn-secondary text-white">Approved Deposits</a>
                 <a href="" class="btn btn-secondary text-white">Approved Withdrawals</a>
                 <a href="" class="btn btn-secondary text-white">Logout</a>
 
             </div>
 
-             <!--Total stats  -->
-             <div class="row cardContent cardContent2 mx-auto  ">
-              <p class="h2 text-center mb-4 ">Total Stats: </p>
-              <div class="col-xl-4">
-                <!-- Bounce Rate -->
-                <div class="card card-default">
-                  <div class="card-header">
-                    <h2 class="text-center" >Total Users</h2>
-                  </div>
-                  <div class="card-body">
-                    <div
-                      class="bg-success d-flex justify-content-between flex-wrap p-5 text-white align-items-lg-end"
-                    >
-                      <div class="d-flex flex-column">
-                        <span class="h3 text-white" id="totalUsers">67.0%</span>
-                        <!-- <span>vs 65.21% (prev)</span> -->
-                      </div>
-                      <div>
-                        <span>7%</span>
-                        <i class="mdi mdi-arrow-down-bold"></i>
-                      </div>
-                    </div>
-                    <!-- <div id="line-chart-3"></div> -->
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4">
-                <!-- Bounce Rate -->
-                <div class="card card-default">
-                  <div class="card-header">
-                    <h2 class=" text-center" >Total Investments</h2>
-                  </div>
-                  <div class="card-body">
-                    <div
-                      class="bg-success d-flex justify-content-between flex-wrap p-5 text-white align-items-lg-end"
-                    >
-                      <div class="d-flex flex-column">
-                        <span class="h3 text-white" id="totalInvestment">67.0%</span>
-                        <!-- <span>vs 65.21% (prev)</span> -->
-                      </div>
-                      <div>
-                        <span>7%</span>
-                        <i class="mdi mdi-arrow-down-bold"></i>
-                      </div>
-                    </div>
-                    <!-- <div id="line-chart-3"></div> -->
-                  </div>
-                </div>
-              </div>
+         <!-- user table -->
+         <div class="table-con">
 
-
-             </div>
+           <table class="table table-striped  table-bordered table-responsive">
+             <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Balance</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody id="userTable">
+  
+  </tbody>
+</table>
             
              
             
-            
+</div>
+<!-- table ends -->
             
             <!-- Footer Start -->
 
@@ -373,7 +354,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="js/users.js"></script>
 
 </body>
 </html>

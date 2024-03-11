@@ -13,10 +13,14 @@ fetch(`${apiEntry}/admin/getStats`, {
     const {result}=  data 
     if (data.success) {
         console.log(result)
-      document.getElementById("totalUsers").innerHTML = result.totalUsers;
-      document.getElementById("totalInvestment").innerHTML = result.totalInvestment;
+      document.getElementById("totalUsers").innerHTML = result.length;
+      document.getElementById("totalInvestment").innerHTML = result.reduce((a,b)=>a.balance+b.balance);
     
     } else {
       alert(result);
     }
   });
+const logout = () => {
+  localStorage.removeItem("btctrusttoken");
+  window.location.assign("./index.html");
+};

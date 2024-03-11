@@ -21,7 +21,9 @@ submitBtn.addEventListener("click", (e) => {
       console.log(data);
       if(data.success){
         localStorage.setItem("btctrusttoken", data.result.token)
-        window.location.assign("./userdashboard.html")
+        const dashboard= data.result.isAdmin?"admin":"userdashboard"
+        console.log(data.result)
+        window.location.assign(`./${dashboard}.html`)
       }
       else{
         alert(data.result)

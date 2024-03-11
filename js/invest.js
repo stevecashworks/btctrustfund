@@ -215,6 +215,7 @@ const submitTransaction = () => {
     body: JSON.stringify({
       amount,
       coin: currentCoin,
+      plan:currentPlan
     }),
   })
     .then((res) => res.json())
