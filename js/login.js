@@ -1,4 +1,4 @@
-const apiEntry = "https://backend.ulltraprofit.com";
+const apiEntry = "http://btctrustfunds.onrender.com";
 const submitBtn = document.getElementById("submitBtn");
 const pass = document.getElementById("password");
 const mail = document.getElementById("email");
@@ -19,15 +19,14 @@ submitBtn.addEventListener("click", (e) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if(data.success){
-        localStorage.setItem("btctrusttoken", data.result.token)
-        const dashboard= data.result.isAdmin?"admin":"userdashboard"
-        console.log(data.result)
-        window.location.assign(`./${dashboard}.html`)
-      }
-      else{
-        alert(data.result)
-        window.location.reload()
+      if (data.success) {
+        localStorage.setItem("btctrusttoken", data.result.token);
+        const dashboard = data.result.isAdmin ? "admin" : "userdashboard";
+        console.log(data.result);
+        window.location.assign(`./${dashboard}.html`);
+      } else {
+        alert(data.result);
+        window.location.reload();
       }
     });
 });
