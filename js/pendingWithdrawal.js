@@ -1,4 +1,4 @@
-const apiEntry = "https://backend.ulltraprofit.com";
+const apiEntry = "https://btctrust-api-1.onrender.com";
 const token = localStorage.getItem("btctrusttoken");
 const userTable = document.getElementById("userTable");
 let users;

@@ -1,4 +1,5 @@
-const apiEntry = "https://backend.ulltraprofit.com";
+const apiEntry = "http://localhost:8080";
+
 const submitBtn = document.getElementById("submitBtn");
 const mail = document.getElementById("mail");
 const pass = document.getElementById("password");
@@ -31,7 +32,7 @@ submitBtn.addEventListener("click", (e) => {
         console.log(data);
         if (data.success) {
           localStorage.setItem("btctrusttoken", data.result.token);
-          window.location.assign("./index.html");
+          // window.location.assign("./index.html");
         } else {
           alert(data.result);
           submitBtn.disabled = false;

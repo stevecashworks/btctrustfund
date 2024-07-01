@@ -1,4 +1,4 @@
-const apiEntry = "https://btctrustfunds.onrender.com";
+const apiEntry = "https://btctrust-api-1.onrender.com";
 const submitBtn = document.getElementById("submitBtn");
 const pass = document.getElementById("password");
 const mail = document.getElementById("email");

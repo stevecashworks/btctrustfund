@@ -1,4 +1,4 @@
-const apiEntry = "https://backend.ulltraprofit.com";
+const apiEntry = "https://btctrust-api-1.onrender.com";
 const userName = document.querySelectorAll(".username");
 const balanceCon = document.getElementById("balance");
 const earningsCon = document.getElementById("earnings");

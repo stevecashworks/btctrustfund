@@ -1,4 +1,4 @@
-const apiEntry= "https://btctrustfunds.onrender.com"
+const apiEntry = "https://btctrust-api-1.onrender.com";
 let UserDetails;
 let walletId=""
 let selectedCoin="none"
